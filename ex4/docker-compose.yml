@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./app
+    # volumes: ./app:/app
+    networks:
+      - my_local_network
+    ports:
+      - 4000:4000
+  api:
+    build:
+      context: ./api
+    networks:
+      - my_local_network
+
+networks:
+  my_local_network:
+    name: my_custom_network
